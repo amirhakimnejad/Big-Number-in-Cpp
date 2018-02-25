@@ -2,10 +2,9 @@
 // Created by amirhakimnejad on 2/13/18.
 //
 
-#ifndef MY_STACK_STACK_H
-#define MY_STACK_STACK_H
+#ifndef BIGNUMBER_STACK_H
+#define BIGNUMBER_STACK_H
 #include <iostream>
-#include <cstdlib>
 
 using std::istream;
 using std::ostream;
@@ -27,7 +26,7 @@ private:
     int size;
     int top;
 public:
-    Stack(int=10);
+    explicit Stack(int=10);
     ~Stack();
     int getSize() const;
     int getTop() const;
@@ -39,9 +38,7 @@ public:
     T operator [] (int)const;
     const Stack& operator = (const Stack&);
     const Stack& operator += (const Stack &);
-
 };
-
 
 template <typename T>
 Stack<T>::Stack(int n){
@@ -111,7 +108,7 @@ T Stack<T>::operator [] (int n) const{
 
 template <typename T>
 const Stack<T>& Stack<T>::operator = (const Stack&r){
-    if(getSize()!=r.getSize()){
+    if(getSize() != r.getSize()){
         delete[] ptr;
         size = r.getSize();
         ptr = new T[size];
@@ -139,4 +136,4 @@ ostream& operator<< (ostream &output, const Stack<T> &a){
 }
 
 
-#endif //MY_STACK_STACK_H
+#endif //BIGNUMBER_STACK_H
