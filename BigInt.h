@@ -1,6 +1,9 @@
-//
-// Created by amirhakimnejad on 2/19/18.
-//
+/**
+ * @file BigInt.h
+ *
+ * @author <a href="mailto:amir_hakimnejad@yahoo.com">Amirhossein Hakimnejad</a>
+ * @date Feb 19, 2018
+ */
 
 #ifndef BIGNUMBER_BIGINT_H
 #define BIGNUMBER_BIGINT_H
@@ -13,11 +16,12 @@ class BigInt {
     friend ostream& operator<< (ostream &, const BigInt &);
 private:
     Stack<int> bigint;
+    BigInt neg() const;
+    void pure();
 public:
     explicit BigInt(int=10);
 
     BigInt(string);
-    ~BigInt();
     int getSize() const{return bigint.getSize();}
     int getTop() const{return bigint.getTop();}
     bool isEmpty() const{return bigint.isEmpty();}
@@ -33,7 +37,6 @@ public:
     bool operator < (const BigInt &r) const{ return r > *this; }
     bool operator >= (const BigInt &r) const{ return !(*this < r); }
     const BigInt& operator = (const BigInt &);
-    const BigInt& operator = (string);
     BigInt operator + (const BigInt &) const;
     BigInt operator + (const string) const;
     BigInt operator - (const BigInt &) const;
@@ -42,6 +45,5 @@ public:
     BigInt &operator ++ (int);
     const BigInt& operator += (const BigInt &r);
     const BigInt& operator += (string);
-    void pure();
 };
 #endif //BIGNUMBER_BIGINT_H

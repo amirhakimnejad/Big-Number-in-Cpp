@@ -1,7 +1,10 @@
-//
-// Created by amirhakimnejad on 2/13/18.
-//
-
+/**
+ * @file Stack.h
+ *
+ * @author <a href="mailto:amir_hakimnejad@yahoo.com">Amirhossein Hakimnejad</a>
+ * @date Feb 19, 2018
+ * @date Mar 6, 2018
+ */
 #ifndef BIGNUMBER_STACK_H
 #define BIGNUMBER_STACK_H
 #include <iostream>
@@ -44,6 +47,7 @@ template <typename T>
 Stack<T>::Stack(int n){
     size = n > 0 ? n : 10;
     top = -1;
+    ptr = 0;
     ptr = new T[size];
     for(int i = 0; i < size; i++)
         ptr[i] = 0;
@@ -52,6 +56,7 @@ Stack<T>::Stack(int n){
 template <typename T>
 Stack<T>::~Stack(){
     delete[] ptr;
+    ptr = 0;
 }
 
 template <typename T>
